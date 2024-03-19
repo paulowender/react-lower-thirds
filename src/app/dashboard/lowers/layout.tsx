@@ -34,9 +34,7 @@ export default function RootLayout({
             <div id="toggle-preview" className="active">
               <div className="icon icon-chevron-down"></div>
             </div>
-            <div className="embed-container">
-              {children}
-            </div>
+            <div className="embed-container">{children}</div>
           </div>
         </div>
 

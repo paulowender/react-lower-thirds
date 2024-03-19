@@ -1,8 +1,9 @@
+import { darkTheme } from "@/theme";
+import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./assets/globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import * as React from "react";
 
 export const metadata: Metadata = {
   title: "React Lower Thirds",
@@ -16,7 +17,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body>
+        <AppRouterCacheProvider options={{ enableCssLayer: true }}>
+          <ThemeProvider theme={darkTheme}>
+            {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+            <CssBaseline />
+            <body>{children}</body>
+          </ThemeProvider>
+        </AppRouterCacheProvider>
+      </body>
     </html>
   );
 }
